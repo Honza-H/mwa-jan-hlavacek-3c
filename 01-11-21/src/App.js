@@ -1,22 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
+import { useEffect } from "react";
+import ContentItem from './contentItem';
 
 function App() {
+  const [count, setCount] = useState(0);
+  const handleClick = () => {
+    console.log("User click");
+    setCount(count + 1);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Text</p>
+        <p>Hodnota počtu: {count}</p>
+        <div>
+          <button onClick={handleClick}>Přičti</button>
+        </div>
+        <div>
+          <ContentItem/>
+          <ContentItem text="aa"/>
+        </div>
+    
       </header>
     </div>
   );
